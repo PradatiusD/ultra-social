@@ -1,0 +1,80 @@
+/*body{/*text-align:center;background:url(resources/images/bg1.jpg) repeat top center #000;}*/
+#instagram{width:1920px;overflow:hidden;margin:0 auto;}
+/*.instagram-image{display:block;float:left;width:636px;height:636px;margin:2px;
+	-webkit-transform:translate3d(0,0,0);
+}*/
+
+/* SOME RESET STYLES 
+------------------------------------*/
+li{margin:0;}
+
+#bg {
+	z-index:-1;
+	position: fixed;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+}
+#bg img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	min-width: 50%;
+	min-height: 50%;
+}
+#instagram img{
+	max-width:100%;
+	width:100%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;}
+#wrapper{
+	max-width: 960px; /* 960 px */ 
+	margin: 0 auto;
+}
+    .list{
+		width:50%;
+        /*width: 103.125%;*/ /* 990px */
+        overflow: hidden;
+        margin-left: -1.562%; /* 15px */
+        margin-bottom: -1.875em; /* 30px */
+		float:left;
+    }
+	
+	#instagram.list{width:60%;float:left;}
+	#twitter.list{width: 40%;float: right;}
+	
+	
+	.item {
+		width: 40%; /* 300px */
+		float: left;
+		margin: 20px; /* 15px 30px */
+	}
+ 
+@media only screen and ( max-width: 40em ) /* 640px */ {
+    .item
+    {
+        width: 46.876%; /* 305px */
+        margin-bottom: 0.938em; /* 15px */
+    }
+}
+@media only screen and ( max-width: 20em ) /* 640px */ {
+    .list{
+        width: 100%;
+        margin-left: 0;
+    }
+    .item{
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+/* CUSTOM OVERRIDES
+-------------------------------------*/
+ul.jta-tweet-list li.jta-tweet-list-item {
+	padding: 8px;}
