@@ -47,12 +47,23 @@
 	<img src="resources/images/bg2.jpg" alt="">
 </div>
 <div id="wrapper" class="container">
-	<div class="submit">
+	<div id="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Our work</a></li>
+            <li><a href="#" class="active">Our clients</a></li>
+            <li><a href="#">Who are we ?</a></li>
+            <li><a href="#">Get in touch</a></li>
+        </ul>
+    </div>
+    <a href="twitter.html" class="twitter"><img src="resources/images/twitter-icon.png"/></a>
+    <div class="submit">
         <form name="form" action="" onSubmit="return false">
             <input type="text" name="tag">
             <input type="submit" value="Submit" >
         </form>
     </div>
+    
 	<div class="list" id="instagram">
     </div>
     <div class="list" id="twitter">
@@ -73,163 +84,19 @@
 <script src="resources/js/libs/jquery-1.7.2.min.js"></script>
 <script src="resources/js/easing.js"></script>
 
-<script src="resources/js/libs/jquery.masonry.min.js"></script>
+<!--<script src="resources/js/libs/jquery.masonry.min.js"></script>-->
 
 <script src="resources/js/libs/modernizr-2.0.6.min.js"></script>
-    <script type="text/javascript" src="resources/js/libs/jTweets/jquery.jtweetsanywhere-1.3.1.min.js"></script>
+
+<script type="text/javascript" src="resources/js/libs/jTweets/jquery.jtweetsanywhere-1.3.1.min.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="resources/js/libs/jTweets/jquery.jtweetsanywhere-1.3.1.css" />
-    
-<script>
-	window.hash = window.location.hash; // Get hashtag from url
-	hash = hash.substring(1); // remove #
-	if(hash.length < 1) hash = 'cars';
-	
-	console.log('hash is '+hash);
-	
-	var idArray = new Array();
-	
-	var columns    = 3,
-	setColumns = function() { 
-		columns = $( window ).width() > 740 ? 3 : $( window ).width() > 500 ? 2 : 1; 
-	};
-	
-	function getQueryString(name)
-	{
-	  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-	  var regexS = "[\\?&]" + name + "=([^&#]*)";
-	  var regex = new RegExp(regexS);
-	  var results = regex.exec(window.location.search);
-	  if(results == null)
-		return "";
-	  else
-		return decodeURIComponent(results[1].replace(/\+/g, " "));
-	}
-	
-	function instragramFeed(){
-		$.ajax({
-			type: "GET",
-			dataType: "jsonp",
-			cache: false,
-			url: "https://api.instagram.com/v1/tags/"+hash+"/media/recent?access_token=245766481.ad88685.66f172256d1c4bc8a0437e42af59c422",
-			success: function(data){
-				var $instagram = $('.instagram'), // Set instagram div element
-					totalImages = data.data.length; // Get total number of images in the feed
-				console.log('totalimages is '+totalImages);
-				console.log(data)
-				for (var i = 0; i < totalImages; i++){
-					if(data.data[i] == "undefined") break;
-					var imageThumb = data.data[i].images.thumbnail.url,
-						imageURL = data.data[i].images.standard_resolution.url,
-						startChar = imageURL.indexOf("com/")+4,
-						endChar = imageURL.indexOf("_"),
-						imageID = imageURL.slice(startChar,endChar)
-						imageLink =  data.data[i].link
-						$hiddenField = $('#goodIDs');
-						console.log(data);
-						//console.log(data.data[i].caption.text);
-					idArray.push(imageURL);
-					$("#instagram").append("<div class='item'><a href='" + imageLink + "'><img id='" + imageID + "' src='" + imageThumb +"' class='instagram-image' /></a></div>");
-					/*
-					if($.inArray(imageID, idArray) == -1) $(".instagram").append("<img id='" + imageID + "' src='" + imageURL +"' class='instagram-image' />");
-					*/
-					$hiddenField.val($hiddenField.val() + ',' + imageURL);
-				}
-				console.log(idArray);
-				
-				windowHeight = $(window).height(), // Get window height
-			// Get height of instagram image feed wrapper
-			// Math is: totalImages x ( (image height / images per row) + total border height)
-			instagramHeight = Math.abs(((totalImages*636)+8)/3),
-			endHeight = Math.abs(instagramHeight - windowHeight), // Get height of when the last image reaches the bottom of the window
-			// Set speed from top to bottom based on total number of images
-			speed = Math.ceil((totalImages * 1000)/.4);
-			
-			$instagram.fadeIn(800, function(){
-				
-		 
-				setColumns();
-	
-				$( '#instagram' ).masonry({
-					itemSelector: '.item',
-					columnWidth: function( containerWidth ) { return containerWidth / columns; },
-					isAnimated: true
-				});
-			})
-				/*$instagram.fadeIn(800).animate({'margin-top':-endHeight},speed,'linear',function(){ // Animate image scroll up
-					$instagram.fadeOut(800,function(){ // Fade out when end of feed
-						$('.instagram-image').remove();
-						$instagram.css({'margin-top':0});
-						loadXML();
-						var columns    = 3,
-							setColumns = function() { columns = $( window ).width() > 640 ? 3 : $( window ).width() > 320 ? 2 : 1; };
-					 
-						setColumns();
-						$( window ).resize( setColumns );
-					 
-						
-						//location.reload();
-					});
-				})*/
-				
-			}
-		});
-	
-		
-	};
-	
-	$(function(){
-		$( window ).resize( setColumns );
-		
-		/*$.ajax({
-		  url: "twitter.html",
-		  cache: false
-		}).done(function( html ) {
-		  $("#twitter").append(html);
-		});*/
-		
-		$('#twitter').jTweetsAnywhere({
-			searchParams: ['q=%23cars'],
-			count: 20,
-			showTweetFeed: {
-				showProfileImages: true,
-				showUserScreenNames: true,
-				showUserFullNames: true,
-				showActionReply: true,
-				showActionRetweet: true,
-				showActionFavorite: true,
-				autoConformToTwitterStyleguide: true,
-        showTimestamp: {
-            refreshInterval: 15
-        },
-        autorefresh: {
-            mode: 'trigger-insert',
-            interval: 30
-        },
-        paging: { mode: 'more' }
-			},
-			showTweetBox: {
-				label: '<span style="color: #303030">Spread the word ...</span>'
-			}
-		});
-		
-		instragramFeed();
-		$('.instagram-image').live("click", function(){
-			var imageURL = $(this).attr('src').replace('_5.jpg', '_7.jpg');
-			console.log(imageURL);
-			
-			if($(this).hasClass('flagged')){
-				idArray.push(imageURL);
-				$(this).removeClass('flagged');
-			} else {
-				idArray = $.grep(idArray, function(value) {
-					return value != imageURL;
-				});
-				$(this).addClass('flagged');
-			}
-		});
-	});
-	
-</script>
+<link rel="stylesheet" type="text/css" href="resources/js/libs/jTweets/jquery.jtweetsanywhere-1.3.1.css" />
+
+<script type="text/javascript" src="resources/js/libs/PageSlide/jquery.pageslide.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/js/libs/PageSlide/jquery.pageslide.css" />
+
+<script type="text/javascript" src="resources/js/scripts.js"></script>
+
+
 </body>
 </html>
