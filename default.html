@@ -16,12 +16,7 @@
 	<!--<meta name="viewport" content="width=1920,initial-scale=1.0">//ORIGINAL-->
     
     <!-- CSS ================================================== -->
-	<!--<link rel="stylesheet" href="resources/css/base.css">
-	<link rel="stylesheet" href="resources/css/skeleton.css">
-	<link rel="stylesheet" href="resources/css/layout.css">-->
-    
-    <link href="resources/css/bootstrap.css" rel="stylesheet">
-    <link href="resources/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="resources/css/reset.css">
     <link rel="stylesheet" href="resources/css/styles.css">
     
     <!--[if lt IE 9]>
@@ -43,11 +38,8 @@
     
 </head>
 <body>
-<div id="bg">
-	<img src="resources/images/bg2.jpg" alt="">
-</div>
 <div id="wrapper" class="container">
-	<div id="menu">
+<!-- 	<div id="menu">
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Our work</a></li>
@@ -55,35 +47,46 @@
             <li><a href="#">Who are we ?</a></li>
             <li><a href="#">Get in touch</a></li>
         </ul>
-    </div>
-    <a href="twitter.html" class="twitter"><img src="resources/images/twitter-icon.png"/></a>
-    <div class="submit">
+    </div> -->
+    <img src="resources/images/logo.png" alt="" id="logo">
+    <a href="#" id="switch">Switch to Twitter</a>
+<!--     
+    <a href="twitter.html" class="twitter"><img src="resources/images/twitter-icon.png"/></a> -->
+<!--     <div class="submit">
         <form name="form" action="" onSubmit="return false">
             <input type="text" name="tag">
             <input type="submit" value="Submit" >
         </form>
-    </div>
+    </div> -->
     
 	<div class="list" id="instagram">
     </div>
-    <div class="list" id="twitter">
-    	<div class="navbar">
-          <div class="navbar-inner">
-            <div class="container">
-              <ul class="nav">
+    <div class="list" id="twitter" style="display:none">
+<!--               <ul class="nav">
                 <li class="active"><a href="#">#ultrasocial</a></li>
                 <li><a href="#">#ultra15</a></li>
                 <li><a href="#">#ultra</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+              </ul> -->
     </div>
 </div>
 
 <script src="resources/js/libs/jquery-1.7.2.min.js"></script>
 <script src="resources/js/easing.js"></script>
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#switch').click(function(){
+            $('#instagram, #twitter').fadeToggle();
+            var text = $(this).text()
+            if (text == "Switch to Twitter") {
+                $('#switch').text("Switch to Instagram");
+            }
+            else
+            {
+                $('#switch').text("Switch to Twitter");
+            }
+        })
+    })
+</script>
 <!--<script src="resources/js/libs/jquery.masonry.min.js"></script>-->
 
 <script src="resources/js/libs/modernizr-2.0.6.min.js"></script>

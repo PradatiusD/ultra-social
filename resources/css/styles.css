@@ -8,13 +8,28 @@
 ------------------------------------*/
 li{margin:0;}
 
-#bg {
-	z-index:-1;
-	position: fixed;
-	top: -50%;
-	left: -50%;
-	width: 200%;
-	height: 200%;
+body {
+	background-image: url('../images/slash_it.png')
+}
+#logo {
+	margin-top:2em;
+}
+
+#switch {
+	display: block;
+	width: 49%;
+	margin: 0 auto 1em auto;
+	background: #16B416;
+	color: white;
+	border-radius: 1em;
+	text-align: center;
+	text-decoration: none;
+	padding: .5em 0em;
+}
+#switch:hover {
+	background: #0B690B;
+}
+
 }
 #bg img {
 	position: absolute;
@@ -29,11 +44,11 @@ li{margin:0;}
 #instagram img{
 	max-width:100%;
 	width:100%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;}
+	border-radius:1em;
+}
+
 #wrapper{
-	max-width: 960px; /* 960 px */ 
+	max-width: 320px; /* 960 px */ 
 	margin: 0 auto;
 }
     .list{
@@ -45,34 +60,16 @@ li{margin:0;}
 		float:left;
     }
 	
-	#instagram.list{width:60%;float:left;}
-	#twitter.list{width: 40%;float: right;}
+	#instagram.list{width:100%;float:left;}
+	#twitter.list{width: 100%;float: left;}
 	
 	
 	.item {
-		width: 40%; /* 300px */
+		width: 47%;
 		float: left;
-		margin: 20px; /* 15px 30px */
+		margin: 0px 1%;
 	}
  
-@media only screen and ( max-width: 40em ) /* 640px */ {
-    .item
-    {
-        width: 46.876%; /* 305px */
-        margin-bottom: 0.938em; /* 15px */
-    }
-}
-@media only screen and ( max-width: 20em ) /* 640px */ {
-    .list{
-        width: 100%;
-        margin-left: 0;
-    }
-    .item{
-		width: 100%;
-		margin-left: 0;
-		margin-right: 0;
-	}
-}
 
 /* CUSTOM OVERRIDES
 -------------------------------------*/
