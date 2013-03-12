@@ -94,7 +94,6 @@ function instragramFeed(){
 			$instagram.fadeIn(800, function(){
 				console.log('done')
 		 		$('.loader').fadeOut();
-				setColumns();
 			})
 		}
 	});//end of AJAX call

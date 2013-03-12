@@ -12,8 +12,7 @@
 	<meta name="author" content="UltraSocial Team">
     
     <!-- Mobile Metas ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!--<meta name="viewport" content="width=1920,initial-scale=1.0">//ORIGINAL-->
+    <meta name="viewport" content="width=device-width" />
     
     <!-- CSS ================================================== -->
     <link rel="stylesheet" type="text/css" href="resources/css/reset.css">
@@ -43,7 +42,7 @@
     <img src="resources/images/ajax-loader.gif" class="loader"/>
     <a href="#" id="switch">Switch to Twitter</a>
     
-	<div class="list" id="instagram" style="display:none;">
+	<div class="list" id="instagram">
     	<div class='paginate'>
     		<a class='button' data-max-tag-id='' href='javascript:void(0);'>
             	<img style="width:auto;" src="resources/images/more_button.gif"/></a>
@@ -59,7 +58,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#switch').click(function(){
-            $('#instagram, #twitter').fadeToggle();
+            $('#instagram, #twitter.list').fadeToggle();
             var text = $(this).text()
             if (text == "Switch to Twitter") {
                 $('#switch').text("Switch to Instagram");
