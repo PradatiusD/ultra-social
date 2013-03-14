@@ -9,26 +9,79 @@
 li{margin:0;}
 
 body {
-	background-image: url('../images/slash_it.png')
+	font-family: 'Droid Sans'
+}
+
+h1 {
+	color: #3A0000;
+	text-align: center;
+	font-size: 2em;
+	margin-top: .5em;
+	font-weight: normal;
+	font-family: 'Lato';
+	font-weight: 100;
+	text-transform: uppercase;
+	width: 100%;
+	background: #AAA;
+	border-bottom: 2px solid oldLace;
+	border-top: 2px solid oldLace;
+}
+
+body {
+	background-image: url('../images/bg');
+
 }
 #logo {
 	margin:2em auto 1em;
 	display:block;
 }
 
+
 #switch {
 	display: none;
-	width: 49%;
+	width: 85%;
+	margin: 0 auto 1em auto;
+	background: #791695;
+	color: white;
+	border-radius: 1em;
+	text-align: center;
+	text-decoration: none;
+	padding-bottom: .7em;
+	font-size:16px;
+	box-shadow: 1px 2px 0px #421C4B;
+}
+
+#switch img {
+    position:relative;
+    top:7px;
+}
+#switch section {
+    display:inline-block;
+    margin-right:8px;
+    margin-bottom:4px;
+    position:relative;
+    bottom:3px;
+}
+#switch:active {color:#421C4B;}
+
+#refresh {
+	width:auto;
 	margin: 0 auto 1em auto;
 	background: #16B416;
 	color: white;
 	border-radius: 1em;
 	text-align: center;
 	text-decoration: none;
-	padding: .5em 0em;
+	padding: 0.5em 1em;
+	position: relative;
+bottom: 49px;
+left: 53%;
+font-size: 14px;
+padding: 1.2em 2.3em;
 }
-#switch:hover {
-	background: #0B690B;
+
+#switch:hover, #refresh:hover {
+	background: #4A0D5C;
 }
 
 }
@@ -69,10 +122,10 @@ body {
 .loader{position: fixed;
    top: 50%;
    left: 50%;
-   width: 16px;
-   height: 16px;
-   margin-top: -8px; /* Half the height */
-   margin-left: -8px; /* Half the width */}
+   width: 65px;
+   height: 65px;
+   margin-top: -33px; /* Half the height */
+   margin-left: -33px; /* Half the width */}
 
 .item {
 	width: 48%;
@@ -99,13 +152,30 @@ span.heart{
 	#wrapper{
 		max-width: 320px; /* 960 px */ 
 		margin: 0 auto;}
-	#instagram.list{width:100%;float:left; margin:0;}
-	#twitter.list{width: 100%;float: left; margin:0;}
+	#instagram.list{width:100%;float:none; margin:0;}
+	#twitter.list{width: 100%;float: none; margin:0;}
 	#twitter.list{
 		display:none;}
 	#switch {
 		display: block;}
+		#refresh {
+		display: inline-block;}
 } 
+
+#wrapper .jta-tweet-list-autorefresh-trigger
+{
+	padding: 8px 0px 8px 0px;
+	margin-bottom: 10px;
+	text-align: center;
+    border: 1px solid #999;
+    border-top-right-radius:1em;
+    border-top-left-radius:1em;
+    font-size:16px;
+    color:#dddddd;
+    background:purple;
+    border:0;
+    position:relative;
+}
 
 /* CUSTOM OVERRIDES
 -------------------------------------*/
@@ -119,4 +189,62 @@ ul.jta-tweet-list li.jta-tweet-list-item {
 .jta-tweet-list-controls-button {
 	background: #16B416;}
 	
+#wrapper .jta-tweet-list-controls-button, #instagrammore {
+	display: inline-block;
+	margin: 0 auto;
+	border-radius: 1em;
+	background: #5F206F;
+	color: whiteSmoke;
+	text-decoration: none;
+	text-align: center;
+	text-decoration: none;
+	padding: 1em 2em;
+	font-size: 14px;
+	border:none;
+}	
+#wrapper .jta-tweet-list-controls-button:hover, #instagrammore:hover {
+	background-color:#4A0D5C;
+}
+
+#instagram img.arrow{
+ 	width: 20px;
+height: 20px;
+margin-left: 4px;
+position: relative;
+top: 4px;
+}
+
+#credits {
+	color:#dddddd;
+	font-size:15px;
+}
+
+#credits a, #credits a:visited {
+	color:#16B416;
+	text-decoration:none;
 	
+}
+#credits img {
+    display:inline-block;
+}
+#credits p {
+    display: inline-block;
+width: 73%;
+position: relative;
+bottom: 18px;
+margin-left: 10px;
+}
+
+@media screen and (min-width: 481px)  {
+    #twitter {
+    	display: inline-block;
+    }
+    #refresh {
+    	bottom: 14px;
+		left: 35%;
+    }
+    #credits {
+    	display: block;
+	text-align: center;
+    }
+}

@@ -15,6 +15,8 @@
     <meta name="viewport" content="width=device-width" />
     
     <!-- CSS ================================================== -->
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" type="text/css" href="resources/css/reset.css">
     <link rel="stylesheet" href="resources/css/styles.css">
     
@@ -40,36 +42,31 @@
 <div id="wrapper" class="container">
     <img src="resources/images/logo.png" alt="" id="logo">
     <img src="resources/images/ajax-loader.gif" class="loader"/>
-    <a href="#" id="switch">Switch to Twitter</a>
-    
+    <a href="#" id="switch"><section>Switch to </section><span class="switch" ><img src='resources/images/twitter-bird.png'/></span><span class="switch" style="display:none"><img src='resources/images/instagram-icon.png'/></span></a>
 	<div class="list" id="instagram">
     	<div class='paginate'>
-    		<a class='button' data-max-tag-id='' href='javascript:void(0);'>
-            	<img style="width:auto;" src="resources/images/more_button.gif"/></a>
+    		<a class='button' data-max-tag-id='' href='javascript:void(0);' id="instagrammore">Older Posts<img src="resources/images/bottom-arrow.png" class="arrow"/></a>
   		</div>
     </div>
     <div class="list" id="twitter">
     </div>
+    <a href="#" onclick="location.reload(true);" id="refresh">Latest Posts</a>
+    <section id="credits">
+        <img src="resources/images/twitter-credits.png">
+        <p>
+           Made with love by <a href="#">@Dave,</a>
+        <a href="http://twitter.com/vanemanz">@vanemanz,</a> &
+        <a href="http://twitter.com/PradatiusD">@PradatiusD</a>         
+        </p>
+
+    </section>
     
 </div>
+    
+
 
 <script src="resources/js/libs/jquery-1.7.2.min.js"></script>
 <script src="resources/js/easing.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#switch').click(function(){
-            $('#instagram, #twitter.list').fadeToggle();
-            var text = $(this).text()
-            if (text == "Switch to Twitter") {
-                $('#switch').text("Switch to Instagram");
-            }
-            else
-            {
-                $('#switch').text("Switch to Twitter");
-            }
-        })
-    })
-</script>
 <!--<script src="resources/js/libs/jquery.masonry.min.js"></script>-->
 
 <script src="resources/js/libs/modernizr-2.0.6.min.js"></script>
@@ -80,7 +77,24 @@
 
 <!--<script type="text/javascript" src="resources/js/instagram.js"></script>-->
 <script type="text/javascript" src="resources/js/scripts.js"></script>
+<script>
+    $(document).ready(function(){
+        var twittermore = $('.jta-tweet-list-controls-button').text()
+        if (twittermore == "More") {
+            $('.jta-tweet-list-controls-button').html('Older Posts <img src="resources/images/bottom-arrow.png" class="arrow"/>')
+        }
+        $('#refresh #instagrammore').toggle().delay(1000).toggle()
+    })
+</script>
+<script>
+    $(document).ready(function(){
+        $('#switch').click(function(){
+            $('#twitter.list, #instagram').fadeToggle();
+            $('.switch').toggle();
+        })
 
+    })
+</script>
 
 </body>
 </html>
